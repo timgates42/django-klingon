@@ -72,7 +72,7 @@ class TranslationAPITestCase(TestCase):
             Translation.objects.count(),
             len(settings.LANGUAGES * len(self.book.translatable_fields)),
         )
-        # nothing should happen if you run translate tiwce
+        # nothing should happen if you run translate twice
         self.book.translate()
 
         self.assertEqual(
@@ -132,7 +132,7 @@ class TranslationAPITestCase(TestCase):
             len(Translation.objects.all()),
             (len(settings.LANGUAGES) - 1) * len(self.book.translatable_fields)
         )
-        # nothing should happen if you run translate tiwce
+        # nothing should happen if you run translate twice
         self.book.translate()
         self.assertEqual(
             len(Translation.objects.all()),
